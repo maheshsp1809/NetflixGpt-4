@@ -109,8 +109,6 @@ To get started with NetflixGPT on your local machine, follow these steps:
 ![App Screenshot](./src/assets/Screenshot2.png)
 ![App Screenshot](./src/assets/Screenshot3.png)
 ![App Screenshot](./src/assets/Screenshot4.png)
-![App Screenshot](./src/assets/Screenshot6.png)
-![App Screenshot](./src/assets/Screenshot7.png)
 ![App Screenshot](./src/assets/Screenshot9.png)
 ![App Screenshot](./src/assets/Screenshot10.png)
 ![App Screenshot](./src/assets/Screenshot11.png)
