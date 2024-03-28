@@ -13,6 +13,8 @@ import { changeLanguage } from "../utils/slices/configSlice";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import HomeIcon from "@mui/icons-material/Home";
+import NavbarItem from "./NavbarItem";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,12 +73,20 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-black flex justify-between items-center absolute z-10 p-1 md:p-4">
+    <div className="w-full bg-gradient-to-b from-gray flex justify-between items-center absolute z-10 p-1 md:p-4">
       <Link to="/browse">
         <div className="w-28 md:w-44">
           <img src={Logo} alt="logo" />
         </div>
       </Link>
+      <div className="flex-row ml-8 gap-7 hidden lg:flex">
+        <NavbarItem label="Home" active />
+        <NavbarItem label="Series" />
+        <NavbarItem label="Films" />
+        <NavbarItem label="New & Popular" />
+        <NavbarItem label="My List" />
+        <NavbarItem label="Browse by Languages" />
+      </div>
       {user && (
         <div className="flex items-center justify-between">
           {path === "/gptSearch" && (
@@ -104,11 +114,17 @@ const Header = () => {
             </Link>
           ) : (
             <Link to="/gptSearch">
-              <div
+              {/* <div
                 onClick={handleGptSearchClick}
                 className=" px-2 py-1 md:px-4 md:py-1 md:mr-2 font-medium text-xs md:text-base bg-green-400 text-black rounded-lg flex cursor-pointer hover:bg-green-500"
               >
-                <button>GPT Search</button>
+                <button>GPT Search</button> */}
+              <div
+                onClick={handleGptSearchClick}
+                className=" px-2 py-1 md:px-4 md:py-1 md:mr-2 font-medium text-xs md:text-base bg-red-400 text-black rounded-lg flex cursor-pointer hover:bg-red-500 z-100000"
+              >
+                <SearchOutlinedIcon style={{ fontSize: "28px" }} />
+                <span className="hidden lg:block">GptSearch</span>
               </div>
             </Link>
           )}

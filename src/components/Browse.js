@@ -9,8 +9,8 @@ import useUpcomimgMovies from "../hooks/useUpcomimgMovies";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleToGptPage } from "../utils/slices/gptSlice";
 import { addPath } from "../utils/slices/pathSlice";
-import Footer from "./Footer";
 import Shimmer from "./Shimmer";
+import ShowcaseShimmer from "./ShowcaseShimmer";
 
 const Browse = () => {
   const user = useSelector((store) => store.user);
@@ -32,7 +32,7 @@ const Browse = () => {
   }, []);
 
   return nowPlayingMovies === null || user === null ? (
-    <Shimmer />
+    <Shimmer /> //Shimmer
   ) : (
     <div className="w-full h-full">
       <MainContainer />
