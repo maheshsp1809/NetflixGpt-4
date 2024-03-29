@@ -11,10 +11,12 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const Login = () => {
   const [isUser, setIsUser] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -97,6 +99,10 @@ const Login = () => {
     setIsUser(!isUser);
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="">
       <Header />
@@ -122,6 +128,7 @@ const Login = () => {
                 ref={name}
                 className="px-4 py-4 mb-5 bg-gray-700 rounded-md "
                 type="text"
+                defaultValue="Mahesh SP"
                 placeholder="Full Name"
               />
             )}
@@ -129,14 +136,24 @@ const Login = () => {
               ref={email}
               className=" px-4 py-4 mb-5 bg-gray-700 rounded-md "
               type="text"
+              defaultValue="mahesh@gmail.com"
               placeholder="Email Address"
             />
-            <input
-              ref={password}
-              className="px-4 py-4 mb-5 bg-gray-700 rounded-md "
-              type="password"
-              placeholder="Password"
-            />
+            <div className="relative">
+              <input
+                ref={password}
+                className="px-4 py-4 mb-5 bg-gray-700 rounded-md w-full"
+                type={showPassword ? "text" : "password"}
+                defaultValue="Mahesh4571@"
+                placeholder="Password"
+              />
+              <div
+                className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </div>
+            </div>
             <p className="w-[300px] pb-2 text-red-700 text-base">
               {errorMessage}
             </p>
