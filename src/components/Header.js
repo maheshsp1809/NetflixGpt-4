@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Logo from "../assets/netflix-logo.png";
+import AVATAR_RED from "../assets/default-red.png";
 import { Avatar, Box, IconButton, ListItem, Tooltip } from "@mui/material";
 import { Logout } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
@@ -79,14 +80,6 @@ const Header = () => {
           <img src={Logo} alt="logo" />
         </div>
       </Link>
-      <div className="flex-row ml-8 gap-7 hidden lg:flex">
-        <NavbarItem label="Home" active />
-        <NavbarItem label="Series" />
-        <NavbarItem label="Films" />
-        <NavbarItem label="New & Popular" />
-        <NavbarItem label="My List" />
-        <NavbarItem label="Browse by Languages" />
-      </div>
       {user && (
         <div className="flex items-center justify-between">
           {path === "/gptSearch" && (
@@ -121,7 +114,7 @@ const Header = () => {
                 <button>GPT Search</button> */}
               <div
                 onClick={handleGptSearchClick}
-                className=" px-2 py-1 md:px-4 md:py-1 md:mr-2 font-medium text-xs md:text-base bg-red-400 text-black rounded-lg flex cursor-pointer hover:bg-red-500 z-100000"
+                className=" px-2 py-1 md:px-4 md:py-1 md:mr-2 font-medium text-xs md:text-base bg-green-600 text-black rounded-lg flex cursor-pointer hover:bg-green-500 z-100000"
               >
                 <SearchOutlinedIcon style={{ fontSize: "28px" }} />
                 <span className="hidden lg:block">GptSearch</span>
@@ -136,9 +129,13 @@ const Header = () => {
                   onMouseEnter={() => setIsOpen(true)}
                   onMouseLeave={() => setIsOpen(false)}
                 >
-                  <Avatar className="" sx={{ width: 30, height: 30 }}>
+                  <div className="thumb aspect-square w-8 h-8 bg-gray-800">
+                    <img src={AVATAR_RED} alt="avatar" />
                     {user?.displayName?.at(0)}
-                  </Avatar>
+                  </div>
+                  {/* <Avatar className="" sx={{ width: 30, height: 30 }}>
+                    {user?.displayName?.at(0)}
+                  </Avatar> */}
                 </IconButton>
               </Tooltip>
             </Box>
